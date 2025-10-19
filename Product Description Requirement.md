@@ -35,7 +35,14 @@ leftTar is a web-based guitar fretboard visualization tool specifically designed
    - Show note positions across entire fretboard
    - Visual distinction between root notes and other scale tones
 
-3. **User Interface**
+3. **Visualization Modes**
+   - Mode selector with 4 options:
+     1. Color Only - root notes (dark blue) and scale notes (light blue), no text
+     2. Note Names - same colors, with note letters (C, D#, E, etc.) - prefer sharps
+     3. Scale Degrees - same colors, with degree numbers (1, 2, 3, 5, 6, 7)
+     4. Solfège - same colors, with solfège syllables (do, re, mi, sol, la, ti)
+
+4. **User Interface**
    - Clean, minimal interface
    - Mobile-first responsive design
    - Clear visual hierarchy
@@ -48,7 +55,7 @@ leftTar is a web-based guitar fretboard visualization tool specifically designed
 - Scale/chord selector (future feature)
 - Audio playback
 - Alternate tunings
-- Customization options (colors, themes)
+- Theme customization (dark mode, custom colors)
 - User accounts or data persistence
 - Right-handed mode (not planned - this is specifically for lefties)
 
@@ -65,10 +72,11 @@ leftTar is a web-based guitar fretboard visualization tool specifically designed
 
 1. **Left-Handed Layout**:
    - Fretboard is horizontal
-   - Low E string (6th string) on the RIGHT side
-   - High E string (1st string) on the LEFT side
-   - Nut/headstock on the LEFT
-   - Body of guitar on the RIGHT
+   - **Nut/headstock (fret 0) on the RIGHT side**
+   - **Body of guitar on the LEFT side**
+   - **Fret 1 toward the RIGHT, higher frets (12) toward the LEFT**
+   - High E string (1st string, thinnest) at the TOP
+   - Low E string (6th string, thickest) at the BOTTOM
    - This mirrors how a left-handed player sees their own guitar when looking down
 
 2. **Note Display**:
@@ -105,9 +113,10 @@ For C Major Pentatonic (MVP):
 
 ### User Interaction Assumptions
 
-1. **No Interaction Required**: Passive display (no clicking on frets)
-2. **Auto-Display**: Scale automatically displayed on page load
-3. **No Navigation**: Single page, single scale (for MVP)
+1. **Minimal Interaction**: Clicking/tapping to change visualization mode only
+2. **Auto-Display**: Scale automatically displayed on page load in default mode
+3. **Mode Persistence**: Selected visualization mode persists during session
+4. **Single Page**: No navigation, single scale (C Major Pentatonic for MVP)
 
 ### Performance Assumptions
 

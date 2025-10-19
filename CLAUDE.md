@@ -105,7 +105,31 @@ The core data model will need to represent:
 - Chord shapes (fingering positions, chord names, variations)
 
 ### Visualizations
+
+**CRITICAL: Left-Handed Orientation Rules**
+
 Visual rendering must account for left-handed orientation throughout. There is no right-handed mode.
+
+**Explicit Left-Handed Fretboard Layout:**
+- The fretboard is displayed HORIZONTALLY
+- **Nut/Headstock (fret 0) is on the RIGHT side**
+- **Body of guitar is on the LEFT side**
+- **Fret 1 is toward the RIGHT**
+- **Higher frets (2, 3, 4... 12) progress toward the LEFT**
+- **High E string (string 1, thinnest) is at the TOP**
+- **Low E string (string 6, thickest) is at the BOTTOM**
+
+This matches how a left-handed player sees their guitar when looking down at it while playing.
+
+**Visualization Modes:**
+
+The interface must support 4 visualization modes via a selector:
+
+1. **Color Only** - Root notes in dark blue, scale notes in light blue (no text)
+2. **Note Names** - Same colors, with note letters (C, D, E, G#, etc.)
+   - Bias toward sharps when there are two choices (prefer C# over Db)
+3. **Scale Degrees** - Same colors, with scale degree numbers (1, 2, 3, 5, 6, 7)
+4. **Solfège** - Same colors, with solfège syllables (do, re, mi, sol, la, ti)
 
 ### Technology Stack
 

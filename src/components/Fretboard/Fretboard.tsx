@@ -1,28 +1,33 @@
-import type { Scale, GuitarConfig } from '@/types'
+import type { Scale, GuitarConfig, VisualizationMode } from '@/types'
 import { FRET_MARKERS } from '@/constants'
+import { getSolfege, getNoteName } from '@/utils/musicTheory/noteLabels'
 
 export interface FretboardProps {
   scale: Scale
   config: GuitarConfig
+  mode?: VisualizationMode
 }
 
 /**
  * Fretboard component - displays a left-handed guitar fretboard with scale positions
  *
- * Layout for left-handed:
+ * LEFT-HANDED LAYOUT:
  * - Strings run horizontally
- * - High E (string 1) on TOP
- * - Low E (string 6) on BOTTOM
- * - Nut/headstock on LEFT
- * - Body on RIGHT
+ * - High E (string 1, thinnest) at the TOP
+ * - Low E (string 6, thickest) at the BOTTOM
+ * - Nut/headstock (fret 0) on the RIGHT
+ * - Body of guitar on the LEFT
+ * - Fret 1 toward the RIGHT, higher frets (12) toward the LEFT
+ *
+ * This mirrors how a left-handed player sees their guitar when looking down at it.
  */
-export function Fretboard({ scale, config }: FretboardProps) {
+export function Fretboard({ scale, config, mode = 'color' }: FretboardProps) {
   const { strings, frets } = config
 
   // SVG dimensions
   const width = 1000
   const height = 400
-  const padding = { top: 40, right: 40, bottom: 40, left: 60 }
+  const padding = { top: 40, right: 60, bottom: 40, left: 40 }
   const fretboardWidth = width - padding.left - padding.right
   const fretboardHeight = height - padding.top - padding.bottom
 
@@ -30,14 +35,24 @@ export function Fretboard({ scale, config }: FretboardProps) {
   const stringSpacing = fretboardHeight / (strings - 1)
   const fretWidth = fretboardWidth / frets
 
-  // Helper to get Y position for a string (left-handed: string 1 at top)
+  // Helper to get Y position for a string (string 1 at top, string 6 at bottom)
   const getStringY = (stringNum: number) => {
     return padding.top + (stringNum - 1) * stringSpacing
   }
 
-  // Helper to get X position for a fret
+  // Helper to get X position for a fret (LEFT-HANDED: fret 0 on RIGHT, fret 12 on LEFT)
   const getFretX = (fretNum: number) => {
-    return padding.left + fretNum * fretWidth
+    // Reverse the direction: higher fret numbers = further left
+    return padding.left + fretboardWidth - fretNum * fretWidth
+  }
+
+  // Helper to get label text for a scale note based on visualization mode
+  const getLabel = (position: typeof scale.positions[0]): string => {
+    if (mode === 'color') return ''
+    if (mode === 'notes') return getNoteName(position.note)
+    if (mode === 'degrees') return position.degree?.toString() || ''
+    if (mode === 'solfege') return getSolfege(position.degree || 1)
+    return ''
   }
 
   return (
@@ -143,14 +158,14 @@ export function Fretboard({ scale, config }: FretboardProps) {
         )
       })}
 
-      {/* String labels (tuning) */}
+      {/* String labels (tuning) - now on the RIGHT side */}
       {Array.from({ length: strings }, (_, i) => {
         const stringNum = i + 1
         const note = config.tuning[strings - stringNum]
         return (
           <text
             key={`string-label-${stringNum}`}
-            x={20}
+            x={width - 20}
             y={getStringY(stringNum)}
             textAnchor="middle"
             dominantBaseline="middle"
@@ -167,9 +182,10 @@ export function Fretboard({ scale, config }: FretboardProps) {
       {scale.positions.map((position, idx) => {
         const x =
           position.fret === 0
-            ? getFretX(0) - fretWidth / 4
-            : getFretX(position.fret - 0.5)
+            ? getFretX(0) + fretWidth / 4 // Open string: slightly left of nut
+            : getFretX(position.fret - 0.5) // Between frets
         const y = getStringY(position.string)
+        const label = getLabel(position)
 
         return (
           <g key={`note-${idx}`}>
@@ -181,19 +197,19 @@ export function Fretboard({ scale, config }: FretboardProps) {
               stroke={position.isRoot ? '#1E40AF' : '#3B82F6'}
               strokeWidth="2"
             />
-            {/* Optional: show note names
-            <text
-              x={x}
-              y={y}
-              textAnchor="middle"
-              dominantBaseline="middle"
-              fontSize="10"
-              fontWeight="bold"
-              fill="white"
-            >
-              {position.note}
-            </text>
-            */}
+            {label && (
+              <text
+                x={x}
+                y={y}
+                textAnchor="middle"
+                dominantBaseline="middle"
+                fontSize={mode === 'solfege' ? '8' : '10'}
+                fontWeight="bold"
+                fill="white"
+              >
+                {label}
+              </text>
+            )}
           </g>
         )
       })}
