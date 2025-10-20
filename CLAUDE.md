@@ -121,15 +121,38 @@ Visual rendering must account for left-handed orientation throughout. There is n
 
 This matches how a left-handed player sees their guitar when looking down at it while playing.
 
+**Scale Selection:**
+
+The interface must support multiple scales across different keys:
+
+- **Key Selector**: Dropdown to select root note (A, B, C, D, E, F, G with sharps/flats)
+- **Mode/Scale Selector**: Dropdown to select scale type:
+  - Major
+  - Harmonic Minor
+  - Melodic Minor
+  - Dorian
+  - Major Pentatonic
+  - Minor Pentatonic
+
 **Visualization Modes:**
 
-The interface must support 4 visualization modes via a selector:
+The interface must support 4 visualization modes via a dropdown (defaulting to Note Names):
 
 1. **Color Only** - Root notes in dark blue, scale notes in light blue (no text)
-2. **Note Names** - Same colors, with note letters (C, D, E, G#, etc.)
+2. **Note Names** (DEFAULT) - Same colors, with note letters (C, D, E, G#, etc.)
    - Bias toward sharps when there are two choices (prefer C# over Db)
-3. **Scale Degrees** - Same colors, with scale degree numbers (1, 2, 3, 5, 6, 7)
+3. **Scale Degrees** - Same colors, with scale degree numbers (1-7)
 4. **Solfège** - Same colors, with solfège syllables (do, re, mi, sol, la, ti)
+
+**Guitar Type:**
+
+The interface must support different guitar neck aspect ratios via a dropdown:
+
+- **Electric Guitar**: Standard electric guitar neck proportions
+- **Acoustic Guitar**: Typical acoustic guitar neck proportions
+- **Classical Guitar**: Classical/nylon string guitar neck proportions
+
+Each guitar type has different fretboard width-to-length ratios that affect the visualization.
 
 ### Technology Stack
 

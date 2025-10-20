@@ -1,11 +1,21 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { Fretboard } from '@/components/Fretboard'
-import { ModeSelector } from '@/components/ModeSelector'
-import { GUITAR_CONFIG, C_MAJOR_PENTATONIC } from '@/constants'
-import type { VisualizationMode } from '@/types'
+import { Selectors } from '@/components/Selectors'
+import { GUITAR_CONFIG } from '@/constants'
+import { generateScale } from '@/utils/musicTheory/scaleGenerator'
+import type { Key, ScaleType, VisualizationMode, GuitarType } from '@/types'
 
 function App() {
-  const [mode, setMode] = useState<VisualizationMode>('color')
+  const [selectedKey, setSelectedKey] = useState<Key>('A')
+  const [selectedScaleType, setSelectedScaleType] = useState<ScaleType>('major')
+  const [visualizationMode, setVisualizationMode] = useState<VisualizationMode>('notes')
+  const [guitarType, setGuitarType] = useState<GuitarType>('electric')
+
+  // Generate scale based on current selections
+  const scale = useMemo(
+    () => generateScale(selectedKey, selectedScaleType),
+    [selectedKey, selectedScaleType]
+  )
 
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4">
@@ -16,14 +26,28 @@ function App() {
         </header>
 
         <main className="space-y-8">
-          {/* Mode Selector */}
+          {/* Selectors */}
           <div className="bg-white rounded-lg shadow-lg p-6">
-            <ModeSelector selectedMode={mode} onModeChange={setMode} />
+            <Selectors
+              selectedKey={selectedKey}
+              selectedScaleType={selectedScaleType}
+              selectedVisualizationMode={visualizationMode}
+              selectedGuitarType={guitarType}
+              onKeyChange={setSelectedKey}
+              onScaleTypeChange={setSelectedScaleType}
+              onVisualizationModeChange={setVisualizationMode}
+              onGuitarTypeChange={setGuitarType}
+            />
           </div>
 
           {/* Fretboard Visualization */}
           <div className="bg-white rounded-lg shadow-lg p-6">
-            <Fretboard scale={C_MAJOR_PENTATONIC} config={GUITAR_CONFIG} mode={mode} />
+            <Fretboard
+              scale={scale}
+              config={GUITAR_CONFIG}
+              mode={visualizationMode}
+              guitarType={guitarType}
+            />
           </div>
 
           {/* Legend */}
@@ -32,7 +56,7 @@ function App() {
             <div className="flex flex-wrap gap-6">
               <div className="flex items-center gap-2">
                 <div className="w-7 h-7 rounded-full bg-blue-500 border-2 border-blue-800"></div>
-                <span className="text-gray-700">Root note (C)</span>
+                <span className="text-gray-700">Root note ({selectedKey})</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-5 h-5 rounded-full bg-blue-300 border-2 border-blue-500"></div>
@@ -63,7 +87,7 @@ function App() {
         </main>
 
         <footer className="text-center mt-12 text-gray-500 text-sm">
-          <p>Version 0.2 - With Visualization Modes</p>
+          <p>Version 0.3 - Multiple Scales & Guitar Types</p>
         </footer>
       </div>
     </div>

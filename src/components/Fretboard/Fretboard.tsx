@@ -1,11 +1,12 @@
-import type { Scale, GuitarConfig, VisualizationMode } from '@/types'
-import { FRET_MARKERS } from '@/constants'
+import type { Scale, GuitarConfig, VisualizationMode, GuitarType } from '@/types'
+import { FRET_MARKERS, GUITAR_TYPES } from '@/constants'
 import { getSolfege, getNoteName } from '@/utils/musicTheory/noteLabels'
 
 export interface FretboardProps {
   scale: Scale
   config: GuitarConfig
   mode?: VisualizationMode
+  guitarType?: GuitarType
 }
 
 /**
@@ -21,12 +22,16 @@ export interface FretboardProps {
  *
  * This mirrors how a left-handed player sees their guitar when looking down at it.
  */
-export function Fretboard({ scale, config, mode = 'color' }: FretboardProps) {
+export function Fretboard({ scale, config, mode = 'notes', guitarType = 'electric' }: FretboardProps) {
   const { strings, frets } = config
 
-  // SVG dimensions
+  // Get aspect ratio for selected guitar type
+  const guitarConfig = GUITAR_TYPES.find(gt => gt.value === guitarType)
+  const aspectRatio = guitarConfig?.aspectRatio || 2.5
+
+  // SVG dimensions - adjust height based on aspect ratio
   const width = 1000
-  const height = 400
+  const height = width / aspectRatio
   const padding = { top: 40, right: 60, bottom: 40, left: 40 }
   const fretboardWidth = width - padding.left - padding.right
   const fretboardHeight = height - padding.top - padding.bottom

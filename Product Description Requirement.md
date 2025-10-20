@@ -30,29 +30,42 @@ leftTar is a web-based guitar fretboard visualization tool specifically designed
    - Show 12 frets minimum (covers one octave)
    - Visual fret markers at standard positions (3, 5, 7, 9, 12)
 
-2. **Scale Display**
-   - Display C Major Pentatonic scale as proof of concept
+2. **Scale Selection**
+   - Key selector dropdown (defaults to A)
+   - Scale/mode type selector dropdown with 6 options:
+     1. Major
+     2. Harmonic Minor
+     3. Melodic Minor
+     4. Dorian
+     5. Major Pentatonic
+     6. Minor Pentatonic
    - Show note positions across entire fretboard
    - Visual distinction between root notes and other scale tones
 
-3. **Visualization Modes**
-   - Mode selector with 4 options:
+3. **Visualization Mode Dropdown**
+   - Single dropdown (defaults to Note Names) with 4 options:
      1. Color Only - root notes (dark blue) and scale notes (light blue), no text
      2. Note Names - same colors, with note letters (C, D#, E, etc.) - prefer sharps
-     3. Scale Degrees - same colors, with degree numbers (1, 2, 3, 5, 6, 7)
+     3. Scale Degrees - same colors, with degree numbers (1-7)
      4. Solfège - same colors, with solfège syllables (do, re, mi, sol, la, ti)
 
-4. **User Interface**
+4. **Guitar Type Selector**
+   - Dropdown to select guitar type (affects neck aspect ratio):
+     1. Electric Guitar - standard electric proportions
+     2. Acoustic Guitar - typical acoustic proportions
+     3. Classical Guitar - classical/nylon string proportions
+
+5. **User Interface**
    - Clean, minimal interface
    - Mobile-first responsive design
    - Clear visual hierarchy
    - Fast loading and rendering
 
-### Out of Scope for MVP
+### Out of Scope for v0.3
 
-- Multiple scale types (will add in future iterations)
+- Additional scale types beyond the 6 specified
 - Chord visualization (future feature)
-- Scale/chord selector (future feature)
+- Keys beyond A (will add in future iterations)
 - Audio playback
 - Alternate tunings
 - Theme customization (dark mode, custom colors)
@@ -106,17 +119,27 @@ leftTar is a web-based guitar fretboard visualization tool specifically designed
 
 ### Scale Data Structure
 
-For C Major Pentatonic (MVP):
-- Notes: C, D, E, G, A
-- Pattern: Root-2-3-5-6 (scale degrees)
-- Positions: Hardcoded array of {string, fret, isRoot} objects
+For all scales in key of A:
+- **Scale Formulas**: Defined as interval patterns (semitone steps)
+  - Major: W-W-H-W-W-W-H (2-2-1-2-2-2-1)
+  - Harmonic Minor: W-H-W-W-H-W+H-H (2-1-2-2-1-3-1)
+  - Melodic Minor: W-H-W-W-W-W-H (2-1-2-2-2-2-1)
+  - Dorian: W-H-W-W-W-H-W (2-1-2-2-2-1-2)
+  - Major Pentatonic: W-W-m3-W-m3 (2-2-3-2-3)
+  - Minor Pentatonic: m3-W-W-m3-W (3-2-2-3-2)
+- **Note Names**: Computed from root + formula, prefer sharps
+- **Positions**: Generated array of {string, fret, note, isRoot, degree} objects
 
 ### User Interaction Assumptions
 
-1. **Minimal Interaction**: Clicking/tapping to change visualization mode only
-2. **Auto-Display**: Scale automatically displayed on page load in default mode
-3. **Mode Persistence**: Selected visualization mode persists during session
-4. **Single Page**: No navigation, single scale (C Major Pentatonic for MVP)
+1. **Dropdown Selectors**: Users can select key, scale type, visualization mode, and guitar type
+2. **Auto-Display**: Scale automatically displayed on page load with defaults:
+   - Key: A
+   - Scale: Major
+   - Visualization: Note Names
+   - Guitar Type: Electric
+3. **Session Persistence**: All selections persist during session
+4. **Single Page**: No navigation, instant updates on selection change
 
 ### Performance Assumptions
 
