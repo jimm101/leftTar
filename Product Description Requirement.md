@@ -27,8 +27,25 @@ leftTar is a web-based guitar fretboard visualization tool specifically designed
 1. **Fretboard Visualization**
    - Display 6-string guitar fretboard (standard tuning: E-A-D-G-B-E)
    - Left-handed orientation (low E string on the right, high E string on the left)
-   - Show 12 frets minimum (covers one octave)
-   - Visual fret markers at standard positions (3, 5, 7, 9, 12)
+   - **Fret range by guitar type:**
+     - Electric: Nut through fret 24
+     - Acoustic: Nut through fret 20
+     - Classical: Nut through fret 19
+   - **String spacing and thickness:**
+     - Strings spaced 50% tighter than average guitar proportions
+     - String thickness varies realistically from low E (thickest) to high E (thinnest)
+   - **Fret spacing:**
+     - Fret spacing 50% tighter than average guitar proportions
+     - Fret numbers positioned just to the right of each fret line
+   - **Position markers:**
+     - Vertical bars indicating positions 1-5 (groups of 4-5 frets each)
+   - **Traditional fret markers:**
+     - Dots at frets 3, 5, 7, 9, 12, 15, 17, 19, 21, 24
+     - Double dots at frets 12 and 24
+   - **Guitar body:**
+     - Body shape rendered at fret 13
+     - Left-handed cutaway over high strings (strings 1-3)
+     - Body extends to the left (toward higher frets)
 
 2. **Scale Selection**
    - Key selector dropdown (defaults to A)
@@ -61,25 +78,35 @@ leftTar is a web-based guitar fretboard visualization tool specifically designed
    - Clear visual hierarchy
    - Fast loading and rendering
 
-### Out of Scope for v0.3
+### Out of Scope for v0.4
 
 - Additional scale types beyond the 6 specified
 - Chord visualization (future feature)
-- Keys beyond A (will add in future iterations)
+- Keys beyond the 12 chromatic notes
 - Audio playback
 - Alternate tunings
 - Theme customization (dark mode, custom colors)
 - User accounts or data persistence
 - Right-handed mode (not planned - this is specifically for lefties)
+- Animated or interactive body/neck
 
 ## Explicit Assumptions
 
 ### Musical Theory Assumptions
 
 1. **Standard Tuning Only**: E-A-D-G-B-E (from lowest to highest pitch)
-2. **12-Fret Display**: Showing 12 frets is sufficient for pattern visualization
-3. **Fret Numbering**: Frets are numbered 1-12 (plus nut/open string as fret 0)
+2. **Extended Fret Display**:
+   - Electric: 24 frets (full professional range)
+   - Acoustic: 20 frets (typical acoustic limit)
+   - Classical: 19 frets (traditional classical range)
+3. **Fret Numbering**: Frets numbered from 0 (nut) through 24/20/19 depending on guitar type
 4. **String Numbering**: Strings numbered 1-6 (1 = high E, 6 = low E)
+5. **Position Markers**: 5 positions, each spanning approximately 4-5 frets
+   - Position I: Frets 1-4
+   - Position II: Frets 5-7
+   - Position III: Frets 8-10
+   - Position IV: Frets 11-13
+   - Position V: Frets 14-17
 
 ### Visual Design Assumptions
 
@@ -92,19 +119,50 @@ leftTar is a web-based guitar fretboard visualization tool specifically designed
    - Low E string (6th string, thickest) at the BOTTOM
    - This mirrors how a left-handed player sees their own guitar when looking down
 
-2. **Note Display**:
-   - Root notes: Larger circles, distinct color (primary/accent color)
-   - Scale tones: Smaller circles, secondary color
-   - Empty fret positions: Not highlighted
-   - Fret markers: Small dots at frets 3, 5, 7, 9, and double dots at fret 12
+2. **Dimensional Specifications**:
+   - **String Spacing**: 50% tighter than average guitar (more compact visualization)
+   - **Fret Spacing**: 50% tighter than average guitar proportions
+   - **String Thickness** (stroke width, pixels):
+     - String 1 (high E): 0.8px (thinnest)
+     - String 2 (B): 1.2px
+     - String 3 (G): 1.6px
+     - String 4 (D): 2.0px
+     - String 5 (A): 2.5px
+     - String 6 (low E): 3.0px (thickest)
+   - **Aspect Ratios** (adjusted for tighter spacing):
+     - Electric: 3.5 (was 2.5)
+     - Acoustic: 3.2 (was 2.3)
+     - Classical: 2.8 (was 2.0)
 
-3. **Colors** (Tailwind defaults for MVP):
+3. **Labeling and Markers**:
+   - **Fret Numbers**: Positioned just to the right of each fret line (not centered between frets)
+   - **Position Markers**: Vertical bars spanning full string height at boundaries of positions I-V
+   - **Traditional Fret Dots**: Small circular markers at frets 3, 5, 7, 9, 12, 15, 17, 19, 21, 24
+     - Single dot for most positions
+     - Double dots at frets 12 and 24
+
+4. **Note Display**:
+   - Root notes: Larger circles (14px radius), distinct color (primary/accent color)
+   - Scale tones: Smaller circles (10px radius), secondary color
+   - Empty fret positions: Not highlighted
+
+5. **Guitar Body Rendering**:
+   - **Body Position**: Aligned with fret 13 (where neck meets body)
+   - **Left-Handed Cutaway**: Upper horn cutaway over high strings (strings 1-3)
+   - **Body Shape**: Extends leftward (toward higher frets) from fret 13
+   - **Visual Style**: Outline only, semi-transparent or subtle color to not obscure fretboard
+
+6. **Colors** (Tailwind defaults):
    - Background: White/light gray
-   - Fretboard: Dark gray/brown
-   - Strings: Light gray
-   - Frets: Medium gray
-   - Root notes: Blue (primary)
-   - Scale notes: Sky blue (lighter)
+   - Fretboard: Dark brown (#8B4513 saddle brown)
+   - Strings: Light gray with varied opacity based on thickness
+   - Frets: Medium gray (#666)
+   - Nut: Thick dark line (#333, 4px)
+   - Position markers: Subtle vertical lines (#999, dashed)
+   - Fret dots: Light gray (#CCC), semi-transparent
+   - Root notes: Blue (#3B82F6)
+   - Scale notes: Sky blue (#93C5FD)
+   - Guitar body: Warm wood tone (#D2691E chocolate), subtle
    - Text: Dark gray/black
 
 ### Technical Assumptions

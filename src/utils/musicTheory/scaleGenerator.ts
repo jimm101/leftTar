@@ -57,8 +57,10 @@ function generateScaleNotes(root: Key, formula: number[]): string[] {
 
 /**
  * Find all positions of a note on the fretboard
+ * @param note - The note to find
+ * @param maxFret - Maximum fret number (24 for electric, 20 for acoustic, 19 for classical)
  */
-function findNotePositions(note: string, maxFret: number = 12): Array<{ string: number; fret: number }> {
+function findNotePositions(note: string, maxFret: number = 24): Array<{ string: number; fret: number }> {
   const positions: Array<{ string: number; fret: number }> = []
   const tuning = GUITAR_CONFIG.tuning // ['E', 'A', 'D', 'G', 'B', 'E']
 
@@ -80,15 +82,18 @@ function findNotePositions(note: string, maxFret: number = 12): Array<{ string: 
 
 /**
  * Generate a complete scale with all fretboard positions
+ * @param root - Root note of the scale
+ * @param scaleType - Type of scale
+ * @param maxFret - Maximum fret to include (defaults to 24 for electric)
  */
-export function generateScale(root: Key, scaleType: ScaleType): Scale {
+export function generateScale(root: Key, scaleType: ScaleType, maxFret: number = 24): Scale {
   const formula = SCALE_FORMULAS[scaleType]
   const notes = generateScaleNotes(root, formula)
   const positions: ScaleNote[] = []
 
   // For each note in the scale, find all its positions on the fretboard
   notes.forEach((note, index) => {
-    const notePositions = findNotePositions(note)
+    const notePositions = findNotePositions(note, maxFret)
     const isRoot = index === 0
     const degree = index + 1
 

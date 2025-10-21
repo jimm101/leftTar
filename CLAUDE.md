@@ -113,11 +113,24 @@ Visual rendering must account for left-handed orientation throughout. There is n
 **Explicit Left-Handed Fretboard Layout:**
 - The fretboard is displayed HORIZONTALLY
 - **Nut/Headstock (fret 0) is on the RIGHT side**
-- **Body of guitar is on the LEFT side**
+- **Body of guitar is on the LEFT side (rendered at fret 13)**
 - **Fret 1 is toward the RIGHT**
-- **Higher frets (2, 3, 4... 12) progress toward the LEFT**
+- **Higher frets (2, 3, 4... up to 24) progress toward the LEFT**
 - **High E string (string 1, thinnest) is at the TOP**
 - **Low E string (string 6, thickest) is at the BOTTOM**
+
+**Fret Range by Guitar Type:**
+- Electric: Nut (fret 0) through fret 24
+- Acoustic: Nut (fret 0) through fret 20
+- Classical: Nut (fret 0) through fret 19
+
+**Dimensional Details:**
+- String spacing: 50% tighter than average guitar (compact visualization)
+- Fret spacing: 50% tighter than average guitar proportions
+- String thickness: Varies realistically (3.0px for low E, down to 0.8px for high E)
+- Fret numbers: Positioned just to the right of each fret line
+- Position markers: Vertical bars at position boundaries (I-V)
+- Guitar body: Rendered at fret 13 with left-handed cutaway over high strings
 
 This matches how a left-handed player sees their guitar when looking down at it while playing.
 

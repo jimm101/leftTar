@@ -1,5 +1,11 @@
 import type { Scale, GuitarConfig, VisualizationMode, GuitarType } from '@/types'
-import { FRET_MARKERS, GUITAR_TYPES } from '@/constants'
+import {
+  FRET_MARKERS,
+  DOUBLE_DOT_FRETS,
+  POSITION_MARKERS,
+  STRING_THICKNESSES,
+  GUITAR_TYPES,
+} from '@/constants'
 import { getSolfege, getNoteName } from '@/utils/musicTheory/noteLabels'
 
 export interface FretboardProps {
@@ -17,26 +23,27 @@ export interface FretboardProps {
  * - High E (string 1, thinnest) at the TOP
  * - Low E (string 6, thickest) at the BOTTOM
  * - Nut/headstock (fret 0) on the RIGHT
- * - Body of guitar on the LEFT
- * - Fret 1 toward the RIGHT, higher frets (12) toward the LEFT
+ * - Body of guitar on the LEFT (rendered at fret 13)
+ * - Fret 1 toward the RIGHT, higher frets toward the LEFT
  *
  * This mirrors how a left-handed player sees their guitar when looking down at it.
  */
 export function Fretboard({ scale, config, mode = 'notes', guitarType = 'electric' }: FretboardProps) {
-  const { strings, frets } = config
+  const { strings } = config
 
-  // Get aspect ratio for selected guitar type
-  const guitarConfig = GUITAR_TYPES.find(gt => gt.value === guitarType)
-  const aspectRatio = guitarConfig?.aspectRatio || 2.5
+  // Get guitar-specific configuration
+  const guitarConfig = GUITAR_TYPES.find(gt => gt.value === guitarType)!
+  const frets = guitarConfig.frets
+  const aspectRatio = guitarConfig.aspectRatio
 
-  // SVG dimensions - adjust height based on aspect ratio
-  const width = 1000
+  // SVG dimensions - adjusted for compact spacing (50% tighter)
+  const width = 1400 // Increased width to accommodate more frets
   const height = width / aspectRatio
-  const padding = { top: 40, right: 60, bottom: 40, left: 40 }
+  const padding = { top: 50, right: 80, bottom: 50, left: 60 }
   const fretboardWidth = width - padding.left - padding.right
   const fretboardHeight = height - padding.top - padding.bottom
 
-  // Calculate spacing
+  // Calculate spacing (50% tighter than standard)
   const stringSpacing = fretboardHeight / (strings - 1)
   const fretWidth = fretboardWidth / frets
 
@@ -45,9 +52,8 @@ export function Fretboard({ scale, config, mode = 'notes', guitarType = 'electri
     return padding.top + (stringNum - 1) * stringSpacing
   }
 
-  // Helper to get X position for a fret (LEFT-HANDED: fret 0 on RIGHT, fret 12 on LEFT)
+  // Helper to get X position for a fret (LEFT-HANDED: fret 0 on RIGHT, higher frets on LEFT)
   const getFretX = (fretNum: number) => {
-    // Reverse the direction: higher fret numbers = further left
     return padding.left + fretboardWidth - fretNum * fretWidth
   }
 
@@ -60,10 +66,42 @@ export function Fretboard({ scale, config, mode = 'notes', guitarType = 'electri
     return ''
   }
 
+  // Helper to render guitar body with cutaway at fret 13
+  const renderGuitarBody = () => {
+    const bodyX = getFretX(13)
+    const bodyWidth = 200
+    const bodyHeight = fretboardHeight + 80
+    const bodyY = padding.top - 40
+
+    // Left-handed cutaway path (upper horn over high strings)
+    const cutawayHeight = bodyHeight * 0.4 // Cutaway covers upper 40% (strings 1-3)
+
+    return (
+      <g opacity="0.3">
+        {/* Main body shape */}
+        <path
+          d={`
+            M ${bodyX} ${bodyY + cutawayHeight}
+            L ${bodyX - 40} ${bodyY + cutawayHeight - 20}
+            L ${bodyX - 60} ${bodyY + cutawayHeight}
+            L ${bodyX - bodyWidth} ${bodyY + 40}
+            L ${bodyX - bodyWidth} ${bodyY + bodyHeight - 40}
+            L ${bodyX - 60} ${bodyY + bodyHeight}
+            L ${bodyX} ${bodyY + bodyHeight}
+            Z
+          `}
+          fill="#D2691E"
+          stroke="#8B4513"
+          strokeWidth="2"
+        />
+      </g>
+    )
+  }
+
   return (
     <svg
       viewBox={`0 0 ${width} ${height}`}
-      className="w-full h-auto max-w-5xl mx-auto"
+      className="w-full h-auto max-w-7xl mx-auto"
       role="img"
       aria-label={`${scale.name} scale on left-handed guitar fretboard`}
     >
@@ -78,6 +116,38 @@ export function Fretboard({ scale, config, mode = 'notes', guitarType = 'electri
         strokeWidth="2"
       />
 
+      {/* Guitar body at fret 13 */}
+      {renderGuitarBody()}
+
+      {/* Position markers (vertical bars) */}
+      {POSITION_MARKERS.filter(pm => pm.startFret <= frets).map(pm => {
+        const x = getFretX(pm.startFret)
+        return (
+          <g key={`position-${pm.position}`}>
+            <line
+              x1={x}
+              y1={padding.top}
+              x2={x}
+              y2={padding.top + fretboardHeight}
+              stroke="#999"
+              strokeWidth="1.5"
+              strokeDasharray="4,3"
+              opacity="0.5"
+            />
+            <text
+              x={x}
+              y={padding.top - 10}
+              textAnchor="middle"
+              fontSize="12"
+              fontWeight="bold"
+              fill="#666"
+            >
+              {pm.position}
+            </text>
+          </g>
+        )
+      })}
+
       {/* Frets */}
       {Array.from({ length: frets + 1 }, (_, i) => (
         <line
@@ -87,14 +157,14 @@ export function Fretboard({ scale, config, mode = 'notes', guitarType = 'electri
           x2={getFretX(i)}
           y2={padding.top + fretboardHeight}
           stroke="#666"
-          strokeWidth={i === 0 ? 4 : 2}
+          strokeWidth={i === 0 ? 5 : 2} // Nut is thicker
         />
       ))}
 
-      {/* Strings */}
+      {/* Strings with varied thickness */}
       {Array.from({ length: strings }, (_, i) => {
-        const stringNum = i + 1
-        const strokeWidth = stringNum === 1 ? 1 : stringNum === 6 ? 3 : 2
+        const stringNum = (i + 1) as keyof typeof STRING_THICKNESSES
+        const strokeWidth = STRING_THICKNESSES[stringNum]
         return (
           <line
             key={`string-${stringNum}`}
@@ -104,14 +174,15 @@ export function Fretboard({ scale, config, mode = 'notes', guitarType = 'electri
             y2={getStringY(stringNum)}
             stroke="#D3D3D3"
             strokeWidth={strokeWidth}
+            opacity={0.7 + strokeWidth * 0.1} // Thicker strings slightly more visible
           />
         )
       })}
 
-      {/* Fret markers */}
-      {FRET_MARKERS.map(fretNum => {
+      {/* Fret markers (dots) */}
+      {FRET_MARKERS.filter(fretNum => fretNum <= frets).map(fretNum => {
         const x = getFretX(fretNum - 0.5)
-        const isDoubleDot = fretNum === 12
+        const isDoubleDot = DOUBLE_DOT_FRETS.includes(fretNum)
 
         if (isDoubleDot) {
           return (
@@ -119,14 +190,14 @@ export function Fretboard({ scale, config, mode = 'notes', guitarType = 'electri
               <circle
                 cx={x}
                 cy={padding.top + fretboardHeight * 0.33}
-                r="6"
+                r="5"
                 fill="#CCC"
                 opacity="0.5"
               />
               <circle
                 cx={x}
                 cy={padding.top + fretboardHeight * 0.67}
-                r="6"
+                r="5"
                 fill="#CCC"
                 opacity="0.5"
               />
@@ -139,23 +210,26 @@ export function Fretboard({ scale, config, mode = 'notes', guitarType = 'electri
             key={`marker-${fretNum}`}
             cx={x}
             cy={padding.top + fretboardHeight / 2}
-            r="6"
+            r="5"
             fill="#CCC"
             opacity="0.5"
           />
         )
       })}
 
-      {/* Fret numbers */}
+      {/* Fret numbers - positioned to the right of each fret */}
       {Array.from({ length: frets }, (_, i) => {
         const fretNum = i + 1
+        // Only show every 3rd fret number to avoid clutter
+        if (fretNum % 3 !== 0 && fretNum !== 1) return null
+
         return (
           <text
             key={`fret-label-${fretNum}`}
-            x={getFretX(fretNum - 0.5)}
-            y={height - 10}
-            textAnchor="middle"
-            fontSize="12"
+            x={getFretX(fretNum) + 8} // Just to the right of the fret
+            y={height - 20}
+            textAnchor="start"
+            fontSize="11"
             fill="#666"
           >
             {fretNum}
@@ -163,18 +237,18 @@ export function Fretboard({ scale, config, mode = 'notes', guitarType = 'electri
         )
       })}
 
-      {/* String labels (tuning) - now on the RIGHT side */}
+      {/* String labels (tuning) - on the RIGHT side */}
       {Array.from({ length: strings }, (_, i) => {
         const stringNum = i + 1
         const note = config.tuning[strings - stringNum]
         return (
           <text
             key={`string-label-${stringNum}`}
-            x={width - 20}
+            x={width - 25}
             y={getStringY(stringNum)}
             textAnchor="middle"
             dominantBaseline="middle"
-            fontSize="14"
+            fontSize="13"
             fontWeight="bold"
             fill="#333"
           >
@@ -208,7 +282,7 @@ export function Fretboard({ scale, config, mode = 'notes', guitarType = 'electri
                 y={y}
                 textAnchor="middle"
                 dominantBaseline="middle"
-                fontSize={mode === 'solfege' ? '8' : '10'}
+                fontSize={mode === 'solfege' ? '7' : '9'}
                 fontWeight="bold"
                 fill="white"
               >
@@ -222,9 +296,9 @@ export function Fretboard({ scale, config, mode = 'notes', guitarType = 'electri
       {/* Title */}
       <text
         x={width / 2}
-        y={20}
+        y={25}
         textAnchor="middle"
-        fontSize="18"
+        fontSize="20"
         fontWeight="bold"
         fill="#333"
       >

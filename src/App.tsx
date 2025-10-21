@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react'
 import { Fretboard } from '@/components/Fretboard'
 import { Selectors } from '@/components/Selectors'
-import { GUITAR_CONFIG } from '@/constants'
+import { GUITAR_CONFIG, GUITAR_TYPES } from '@/constants'
 import { generateScale } from '@/utils/musicTheory/scaleGenerator'
 import type { Key, ScaleType, VisualizationMode, GuitarType } from '@/types'
 
@@ -11,10 +11,15 @@ function App() {
   const [visualizationMode, setVisualizationMode] = useState<VisualizationMode>('notes')
   const [guitarType, setGuitarType] = useState<GuitarType>('electric')
 
+  // Get fret count for selected guitar type
+  const maxFret = useMemo(() => {
+    return GUITAR_TYPES.find(gt => gt.value === guitarType)?.frets || 24
+  }, [guitarType])
+
   // Generate scale based on current selections
   const scale = useMemo(
-    () => generateScale(selectedKey, selectedScaleType),
-    [selectedKey, selectedScaleType]
+    () => generateScale(selectedKey, selectedScaleType, maxFret),
+    [selectedKey, selectedScaleType, maxFret]
   )
 
   return (
@@ -87,7 +92,7 @@ function App() {
         </main>
 
         <footer className="text-center mt-12 text-gray-500 text-sm">
-          <p>Version 0.3 - Multiple Scales & Guitar Types</p>
+          <p>Version 0.4 - Enhanced Visualization & Extended Fretboard</p>
         </footer>
       </div>
     </div>

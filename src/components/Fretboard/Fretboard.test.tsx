@@ -5,7 +5,7 @@ import { GUITAR_CONFIG } from '@/constants'
 import { generateScale } from '@/utils/musicTheory/scaleGenerator'
 
 describe('Fretboard', () => {
-  const testScale = generateScale('A', 'major')
+  const testScale = generateScale('A', 'major', 24) // Electric guitar range
 
   it('renders without crashing', () => {
     render(<Fretboard scale={testScale} config={GUITAR_CONFIG} />)
@@ -41,9 +41,9 @@ describe('Fretboard', () => {
   it('renders fret numbers', () => {
     render(<Fretboard scale={testScale} config={GUITAR_CONFIG} />)
 
-    // Check for a few fret numbers
+    // Check for fret numbers (only every 3rd fret is shown, plus fret 1)
     expect(screen.getByText('1')).toBeInTheDocument()
-    expect(screen.getByText('5')).toBeInTheDocument()
+    expect(screen.getByText('3')).toBeInTheDocument()
     expect(screen.getByText('12')).toBeInTheDocument()
   })
 
