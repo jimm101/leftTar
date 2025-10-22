@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Major Scale Positions - 5 Creative Visualizations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #f0f0f0;
+            font-size: 1.2em;
+            margin-bottom: 50px;
+            font-style: italic;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .visualization-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .visualization-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 70px rgba(0,0,0,0.4);
+        }
+
+        .card-header {
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .card-description {
+            color: #666;
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        .svg-container {
+            background: #f9fafb;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .key-features {
+            background: #f0f4f8;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .key-features h4 {
+            color: #667eea;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .key-features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .key-features li {
+            color: #555;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .key-features li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .legend {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid #e5e7eb;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .legend-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 2px solid;
+        }
+
+        .legend-line {
+            width: 30px;
+            height: 3px;
+            border-radius: 2px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .visualization-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>A Major Scale - 5 Position Approaches</h1>
+        <p class="subtitle">Creative visualizations exploring different ways to navigate the fretboard</p>
+
+        <div class="grid">
+            <!-- Visualization 1: CAGED E-Shape -->
+            <div class="visualization-card">
+                <div class="card-header">
+                    <h2 class="card-title">1. CAGED "E-Shape" Position</h2>
+                    <p class="card-description">
+                        Based on the open E major chord shape, this pattern sits at the nut and extends to the 4th fret.
+                        The CAGED system uses familiar chord shapes to organize the fretboard.
+                    </p>
+                </div>
+
+                <div class="svg-container">
+                    <svg viewBox="0 0 800 350" id="viz1">
+                        <!-- Fretboard background -->
+                        <rect x="100" y="50" width="600" height="200" fill="#8B4513" stroke="#4A2511" stroke-width="2" rx="8"/>
+
+                        <!-- Frets (0-4, left-handed: nut on right) -->
+                        <line x1="700" y1="50" x2="700" y2="250" stroke="#333" stroke-width="6"/> <!-- Nut -->
+                        <line x1="550" y1="50" x2="550" y2="250" stroke="#666" stroke-width="2"/> <!-- Fret 1 -->
+                        <line x1="400" y1="50" x2="400" y2="250" stroke="#666" stroke-width="2"/> <!-- Fret 2 -->
+                        <line x1="250" y1="50" x2="250" y2="250" stroke="#666" stroke-width="2"/> <!-- Fret 3 -->
+                        <line x1="100" y1="50" x2="100" y2="250" stroke="#666" stroke-width="2"/> <!-- Fret 4 -->
+
+                        <!-- Strings (high E at top) -->
+                        <line x1="100" y1="83" x2="700" y2="83" stroke="#D3D3D3" stroke-width="1" opacity="0.8"/>
+                        <line x1="100" y1="116" x2="700" y2="116" stroke="#D3D3D3" stroke-width="1.5" opacity="0.8"/>
+                        <line x1="100" y1="150" x2="700" y2="150" stroke="#D3D3D3" stroke-width="2" opacity="0.8"/>
+                        <line x1="100" y1="183" x2="700" y2="183" stroke="#D3D3D3" stroke-width="2.5" opacity="0.8"/>
+                        <line x1="100" y1="216" x2="700" y2="216" stroke="#D3D3D3" stroke-width="3" opacity="0.8"/>
+                        <line x1="100" y1="250" x2="700" y2="250" stroke="#D3D3D3" stroke-width="3.5" opacity="0.8"/>
+
+                        <!-- Fret markers -->
+                        <circle cx="475" cy="150" r="6" fill="#CCC" opacity="0.4"/> <!-- Fret 3 -->
+
+                        <!-- Fret numbers -->
+                        <text x="705" y="275" font-size="14" fill="#666">0</text>
+                        <text x="555" y="275" font-size="14" fill="#666">1</text>
+                        <text x="405" y="275" font-size="14" fill="#666">2</text>
+                        <text x="255" y="275" font-size="14" fill="#666">3</text>
+                        <text x="105" y="275" font-size="14" fill="#666">4</text>
+
+                        <!-- String labels -->
+                        <text x="760" y="83" font-size="12" fill="#333" font-weight="bold">E</text>
+                        <text x="760" y="116" font-size="12" fill="#333" font-weight="bold">B</text>
+                        <text x="760" y="150" font-size="12" fill="#333" font-weight="bold">G</text>
+                        <text x="760" y="183" font-size="12" fill="#333" font-weight="bold">D</text>
+                        <text x="760" y="216" font-size="12" fill="#333" font-weight="bold">A</text>
+                        <text x="760" y="250" font-size="12" fill="#333" font-weight="bold">E</text>
+
+                        <!-- A Major notes in E-shape position -->
+                        <!-- String 6 (E): E(0), A(5) - only E shown -->
+                        <circle cx="700" cy="250" r="14" fill="#E63946" stroke="#9D0208" stroke-width="2"/>
+                        <text x="700" y="250" text-anchor="middle" dominant-baseline="middle" font-size="10" fill="white" font-weight="bold">E</text>
+
+                        <!-- String 5 (A): A(0) - ROOT -->
+                        <circle cx="700" cy="216" r="16" fill="#FFD700" stroke="#FF8C00" stroke-width="3"/>
+                        <text x="700" y="216" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="#333" font-weight="bold">A</text>
+
+                        <!-- String 5 (A): B(2) -->
+                        <circle cx="400" cy="216" r="12" fill="#93C5FD" stroke="#3B82F6" stroke-width="2"/>
+                        <text x="400" y="216" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="white" font-weight="bold">B</text>
+
+                        <!-- String 5 (A): C#(4) -->
+                        <circle cx="175" cy="216" r="12" fill="#93C5FD" stroke="#3B82F6" stroke-width="2"/>
+                        <text x="175" y="216" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="white" font-weight="bold">C#</text>
+
+                        <!-- String 4 (D): D(0) -->
+                        <circle cx="700" cy="183" r="14" fill="#E63946" stroke="#9D0208" stroke-width="2"/>
+                        <text x="700" y="183" text-anchor="middle" dominant-baseline="middle" font-size="10" fill="white" font-weight="bold">D</text>
+
+                        <!-- String 4 (D): E(2) -->
+                        <circle cx="400" cy="183" r="14" fill="#E63946" stroke="#9D0208" stroke-width="2"/>
+                        <text x="400" y="183" text-anchor="middle" dominant-baseline="middle" font-size="10" fill="white" font-weight="bold">E</text>
+
+                        <!-- String 4 (D): F#(4) -->
+                        <circle cx="175" cy="183" r="12" fill="#93C5FD" stroke="#3B82F6" stroke-width="2"/>
+                        <text x="175" y="183" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="white" font-weight="bold">F#</text>
+
+                        <!-- String 3 (G): G#(1) -->
+                        <circle cx="625" cy="150" r="12" fill="#93C5FD" stroke="#3B82F6" stroke-width="2"/>
+                        <text x="625" y="150" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="white" font-weight="bold">G#</text>
+
+                        <!-- String 3 (G): A(2) - ROOT -->
+                        <circle cx="400" cy="150" r="16" fill="#FFD700" stroke="#FF8C00" stroke-width="3"/>
+                        <text x="400" y="150" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="#333" font-weight="bold">A</text>
+
+                        <!-- String 3 (G): B(4) -->
+                        <circle cx="175" cy="150" r="12" fill="#93C5FD" stroke="#3B82F6" stroke-width="2"/>
+                        <text x="175" y="150" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="white" font-weight="bold">B</text>
+
+                        <!-- String 2 (B): B(0) -->
+                        <circle cx="700" cy="116" r="12" fill="#93C5FD" stroke="#3B82F6" stroke-width="2"/>
+                        <text x="700" y="116" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="white" font-weight="bold">B</text>
+
+                        <!-- String 2 (B): C#(2) -->
+                        <circle cx="400" cy="116" r="12" fill="#93C5FD" stroke="#3B82F6" stroke-width="2"/>
+                        <text x="400" y="116" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="white" font-weight="bold">C#</text>
+
+                        <!-- String 2 (B): E(5) - only up to E(4 shown as approximate) -->
+
+                        <!-- String 1 (E): E(0) -->
+                        <circle cx="700" cy="83" r="14" fill="#E63946" stroke="#9D0208" stroke-width="2"/>
+                        <text x="700" y="83" text-anchor="middle" dominant-baseline="middle" font-size="10" fill="white" font-weight="bold">E</text>
+
+                        <!-- String 1 (E): F#(2) -->
+                        <circle cx="400" cy="83" r="12" fill="#93C5FD" stroke="#3B82F6" stroke-width="2"/>
+                        <text x="400" y="83" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="white" font-weight="bold">F#</text>
+
+                        <!-- String 1 (E): G#(4) -->
+                        <circle cx="175" cy="83" r="12" fill="#93C5FD" stroke="#3B82F6" stroke-width="2"/>
+                        <text x="175" y="83" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="white" font-weight="bold">G#</text>
+
+                        <!-- Position label -->
+                        <text x="400" y="30" text-anchor="middle" font-size="16" fill="#333" font-weight="bold">Open Position (E-Shape)</text>
+                    </svg>
+                </div>
+
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-dot" style="background: #FFD700; border-color: #FF8C00;"></div>
+                        <span>Root (A)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot" style="background: #E63946; border-color: #9D0208;"></div>
+                        <span>Chord Tones (A-C#-E)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot" style="background: #93C5FD; border-color: #3B82F6;"></div>
+                        <span>Passing Tones</span>
+                    </div>
+                </div>
+
+                <div class="key-features">
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li>Familiar E chord shape visible in the pattern</li>
+                        <li>Great for open position playing</li>
+                        <li>Chord tones highlighted in red</li>
+                        <li>Starts at the nut (fret 0)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Visualization 2: 3-Notes-Per-String -->
+            <div class="visualization-card">
+                <div class="card-header">
+                    <h2 class="card-title">2. Three-Notes-Per-String Pattern</h2>
+                    <p class="card-description">
+                        Modern approach favored by shredders. Exactly 3 notes per string creates symmetrical, fast patterns.
+                        This is Position 1 of 7 possible three-note-per-string patterns.
+                    </p>
+                </div>
+
+                <div class="svg-container">
+                    <svg viewBox="0 0 800 350" id="viz2">
+                        <!-- Fretboard background -->
+                        <rect x="100" y="50" width="600" height="200" fill="#8B4513" stroke="#4A2511" stroke-width="2" rx="8"/>
+
+                        <!-- Frets (4-9, left-handed) -->
+                        <line x1="700" y1="50" x2="700" y2="250" stroke="#666" stroke-width="2"/> <!-- Fret 4 -->
+                        <line x1="580" y1="50" x2="580" y2="250" stroke="#666" stroke-width="2"/> <!-- Fret 5 -->
+                        <line x1="460" y1="50" x2="460" y2="250" stroke="#666" stroke-width="2"/> <!-- Fret 6 -->
+                        <line x1="340" y1="50" x2="340" y2="250" stroke="#666" stroke-width="2"/> <!-- Fret 7 -->
+                        <line x1="220" y1="50" x2="220" y2="250" stroke="#666" stroke-width="2"/> <!-- Fret 8 -->
+                        <line x1="100" y1="50" x2="100" y2="250" stroke="#666" stroke-width="2"/> <!-- Fret 9 -->
+
+                        <!-- Strings -->
+                        <line x1="100" y1="83" x2="700" y2="83" stroke="#D3D3D3" stroke-width="1" opacity="0.8"/>
+                        <line x1="100" y1="116" x2="700" y2="116" stroke="#D3D3D3" stroke-width="1.5" opacity="0.8"/>
+                        <line x1="100" y1="150" x2="700" y2="150" stroke="#D3D3D3" stroke-width="2" opacity="0.8"/>
+                        <line x1="100" y1="183" x2="700" y2="183" stroke="#D3D3D3" stroke-width="2.5" opacity="0.8"/>
+                        <line x1="100" y1="216" x2="700" y2="216" stroke="#D3D3D3" stroke-width="3" opacity="0.8"/>
+                        <line x1="100" y1="250" x2="700" y2="250" stroke="#D3D3D3" stroke-width="3.5" opacity="0.8"/>
+
+                        <!-- Fret markers -->
+                        <circle cx="640" cy="150" r="6" fill="#CCC" opacity="0.4"/> <!-- Fret 5 -->
+                        <circle cx="400" cy="150" r="6" fill="#CCC" opacity="0.4"/> <!-- Fret 7 -->
+                        <circle cx="280" cy="100" r="6" fill="#CCC" opacity="0.4"/> <!-- Fret 9 top -->
+                        <circle cx="280" cy="200" r="6" fill="#CCC" opacity="0.4"/> <!-- Fret 9 bottom -->
+
+                        <!-- Fret numbers -->
+                        <text x="705" y="275" font-size="14" fill="#666">4</text>
+                        <text x="585" y="275" font-size="14" fill="#666">5</text>
+                        <text x="465" y="275" font-size="14" fill="#666">6</text>
+                        <text x="345" y="275" font-size="14" fill="#666">7</text>
+                        <text x="225" y="275" font-size="14" fill="#666">8</text>
+                        <text x="105" y="275" font-size="14" fill="#666">9</text>
+
+                        <!-- String labels -->
+                        <text x="760" y="83" font-size="12" fill="#333" font-weight="bold">E</text>
+                        <text x="760" y="116" font-size="12" fill="#333" font-weight="bold">B</text>
+                        <text x="760" y="150" font-size="12" fill="#333" font-weight="bold">G</text>
+                        <text x="760" y="183" font-size="12" fill="#333" font-weight="bold">D</text>
+                        <text x="760" y="216" font-size="12" fill="#333" font-weight="bold">A</text>
+                        <text x="760" y="250" font-size="12" fill="#333" font-weight="bold">E</text>
+
+                        <!-- 3 notes per string pattern -->
+                        <!-- String 6: A(5), B(7), C#(9) -->
+                        <circle cx="640" cy="250" r="16" fill="#10B981" stroke="#065F46" stroke-width="3"/>
+                        <text x="640" y="250" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="white" font-weight="bold">A</text>
+                        <text x="640" y="295" text-anchor="middle" font-size="10" fill="#059669" font-weight="bold">1</text>
+
+                        <circle cx="400" cy="250" r="13" fill="#6EE7B7" stroke="#10B981" stroke-width="2"/>
+                        <text x="400" y="250" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#065F46" font-weight="bold">B</text>
+                        <text x="400" y="295" text-anchor="middle" font-size="10" fill="#059669" font-weight="bold">3</text>
+
+                        <circle cx="160" cy="250" r="13" fill="#6EE7B7" stroke="#10B981" stroke-width="2"/>
+                        <text x="160" y="250" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="#065F46" font-weight="bold">C#</text>
+                        <text x="160" y="295" text-anchor="middle" font-size="10" fill="#059669" font-weight="bold">4</text>
+
+                        <!-- String 5: D(5), E(7), F#(9) -->
+                        <circle cx="640" cy="216" r="13" fill="#6EE7B7" stroke="#10B981" stroke-width="2"/>
+                        <text x="640" y="216" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#065F46" font-weight="bold">D</text>
+                        <text x="640" y="305" text-anchor="middle" font-size="10" fill="#059669" font-weight="bold">1</text>
+
+                        <circle cx="400" cy="216" r="13" fill="#6EE7B7" stroke="#10B981" stroke-width="2"/>
+                        <text x="400" y="216" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#065F46" font-weight="bold">E</text>
+                        <text x="400" y="305" text-anchor="middle" font-size="10" fill="#059669" font-weight="bold">3</text>
+
+                        <circle cx="160" cy="216" r="13" fill="#6EE7B7" stroke="#10B981" stroke-width="2"/>
+                        <text x="160" y="216" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="#065F46" font-weight="bold">F#</text>
+                        <text x="160" y="305" text-anchor="middle" font-size="10" fill="#059669" font-weight="bold">4</text>
+
+                        <!-- String 4: G#(6), A(7), B(9) -->
+                        <circle cx="520" cy="183" r="13" fill="#6EE7B7" stroke="#10B981" stroke-width="2"/>
+                        <text x="520" y="183" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="#065F46" font-weight="bold">G#</text>
+                        <text x="520" y="305" text-anchor="middle" font-size="10" fill="#059669" font-weight="bold">2</text>
+
+                        <circle cx="400" cy="183" r="16" fill="#10B981" stroke="#065F46" stroke-width="3"/>
+                        <text x="400" y="183" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="white" font-weight="bold">A</text>
+                        <text x="400" y="305" text-anchor="middle" font-size="10" fill="#059669" font-weight="bold">3</text>
+
+                        <circle cx="160" cy="183" r="13" fill="#6EE7B7" stroke="#10B981" stroke-width="2"/>
+                        <text x="160" y="183" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#065F46" font-weight="bold">B</text>
+                        <text x="160" y="305" text-anchor="middle" font-size="10" fill="#059669" font-weight="bold">4</text>
+
+                        <!-- String 3: C#(6), D(7), E(9) -->
+                        <circle cx="520" cy="150" r="13" fill="#6EE7B7" stroke="#10B981" stroke-width="2"/>
+                        <text x="520" y="150" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="#065F46" font-weight="bold">C#</text>
+                        <text x="520" y="315" text-anchor="middle" font-size="10" fill="#059669" font-weight="bold">1</text>
+
+                        <circle cx="400" cy="150" r="13" fill="#6EE7B7" stroke="#10B981" stroke-width="2"/>
+                        <text x="400" y="150" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#065F46" font-weight="bold">D</text>
+                        <text x="400" y="315" text-anchor="middle" font-size="10" fill="#059669" font-weight="bold">2</text>
+
+                        <circle cx="160" cy="150" r="13" fill="#6EE7B7" stroke="#10B981" stroke-width="2"/>
+                        <text x="160" y="150" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#065F46" font-weight="bold">E</text>
+                        <text x="160" y="315" text-anchor="middle" font-size="10" fill="#059669" font-weight="bold">4</text>
+
+                        <!-- String 2: F#(7), G#(9), A(11) - but showing A at approx position -->
+                        <circle cx="400" cy="116" r="13" fill="#6EE7B7" stroke="#10B981" stroke-width="2"/>
+                        <text x="400" y="116" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="#065F46" font-weight="bold">F#</text>
+                        <text x="400" y="325" text-anchor="middle" font-size="10" fill="#059669" font-weight="bold">2</text>
+
+                        <circle cx="160" cy="116" r="13" fill="#6EE7B7" stroke="#10B981" stroke-width="2"/>
+                        <text x="160" y="116" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="#065F46" font-weight="bold">G#</text>
+                        <text x="160" y="325" text-anchor="middle" font-size="10" fill="#059669" font-weight="bold">4</text>
+
+                        <!-- String 1: B(7), C#(9), D(11) - showing first two -->
+                        <circle cx="400" cy="83" r="13" fill="#6EE7B7" stroke="#10B981" stroke-width="2"/>
+                        <text x="400" y="83" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#065F46" font-weight="bold">B</text>
+                        <text x="400" y="335" text-anchor="middle" font-size="10" fill="#059669" font-weight="bold">2</text>
+
+                        <circle cx="160" cy="83" r="13" fill="#6EE7B7" stroke="#10B981" stroke-width="2"/>
+                        <text x="160" y="83" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="#065F46" font-weight="bold">C#</text>
+                        <text x="160" y="335" text-anchor="middle" font-size="10" fill="#059669" font-weight="bold">4</text>
+
+                        <!-- Position label -->
+                        <text x="400" y="30" text-anchor="middle" font-size="16" fill="#333" font-weight="bold">3NPS Pattern - Position 1</text>
+
+                        <!-- Picking directions -->
+                        <text x="50" y="150" text-anchor="middle" font-size="24" fill="#059669" font-weight="bold">↓↑↓</text>
+                    </svg>
+                </div>
+
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-dot" style="background: #10B981; border-color: #065F46;"></div>
+                        <span>Root (A)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot" style="background: #6EE7B7; border-color: #10B981;"></div>
+                        <span>Scale Notes</span>
+                    </div>
+                    <div class="legend-item">
+                        <span style="font-weight: bold; color: #059669;">1-4:</span>
+                        <span>Finger Numbers</span>
+                    </div>
+                </div>
+
+                <div class="key-features">
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li>Exactly 3 notes on each string (symmetrical)</li>
+                        <li>Ideal for speed playing and sweep picking</li>
+                        <li>Consistent finger pattern: 1-3-4 or variations</li>
+                        <li>Covers wide fretboard range (frets 5-9)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Visualization 3: Traditional Box Pattern -->
+            <div class="visualization-card">
+                <div class="card-header">
+                    <h2 class="card-title">3. Traditional "Box Pattern"</h2>
+                    <p class="card-description">
+                        Classic 4-fret position used in blues and rock. Confined to one hand position without shifting.
+                        This is Position II of the traditional 5-position system.
+                    </p>
+                </div>
+
+                <div class="svg-container">
+                    <svg viewBox="0 0 800 350" id="viz3">
+                        <!-- Position box highlight -->
+                        <rect x="280" y="35" width="420" height="230" fill="#FEF3C7" opacity="0.3" stroke="#F59E0B" stroke-width="3" stroke-dasharray="8,4" rx="8"/>
+
+                        <!-- Fretboard background -->
+                        <rect x="100" y="50" width="600" height="200" fill="#8B4513" stroke="#4A2511" stroke-width="2" rx="8"/>
+
+                        <!-- Frets (4-9) -->
+                        <line x1="700" y1="50" x2="700" y2="250" stroke="#666" stroke-width="2"/>
+                        <line x1="580" y1="50" x2="580" y2="250" stroke="#666" stroke-width="2"/>
+                        <line x1="460" y1="50" x2="460" y2="250" stroke="#666" stroke-width="2"/>
+                        <line x1="340" y1="50" x2="340" y2="250" stroke="#666" stroke-width="2"/>
+                        <line x1="220" y1="50" x2="220" y2="250" stroke="#666" stroke-width="2"/>
+                        <line x1="100" y1="50" x2="100" y2="250" stroke="#666" stroke-width="2"/>
+
+                        <!-- Strings -->
+                        <line x1="100" y1="83" x2="700" y2="83" stroke="#D3D3D3" stroke-width="1" opacity="0.8"/>
+                        <line x1="100" y1="116" x2="700" y2="116" stroke="#D3D3D3" stroke-width="1.5" opacity="0.8"/>
+                        <line x1="100" y1="150" x2="700" y2="150" stroke="#D3D3D3" stroke-width="2" opacity="0.8"/>
+                        <line x1="100" y1="183" x2="700" y2="183" stroke="#D3D3D3" stroke-width="2.5" opacity="0.8"/>
+                        <line x1="100" y1="216" x2="700" y2="216" stroke="#D3D3D3" stroke-width="3" opacity="0.8"/>
+                        <line x1="100" y1="250" x2="700" y2="250" stroke="#D3D3D3" stroke-width="3.5" opacity="0.8"/>
+
+                        <!-- Fret markers -->
+                        <circle cx="640" cy="150" r="6" fill="#CCC" opacity="0.4"/>
+                        <circle cx="400" cy="150" r="6" fill="#CCC" opacity="0.4"/>
+
+                        <!-- Fret numbers -->
+                        <text x="705" y="275" font-size="14" fill="#666">4</text>
+                        <text x="585" y="275" font-size="14" fill="#666">5</text>
+                        <text x="465" y="275" font-size="14" fill="#666">6</text>
+                        <text x="345" y="275" font-size="14" fill="#F59E0B" font-weight="bold">7</text>
+                        <text x="225" y="275" font-size="14" fill="#F59E0B" font-weight="bold">8</text>
+                        <text x="105" y="275" font-size="14" fill="#666">9</text>
+
+                        <!-- String labels -->
+                        <text x="760" y="83" font-size="12" fill="#333" font-weight="bold">E</text>
+                        <text x="760" y="116" font-size="12" fill="#333" font-weight="bold">B</text>
+                        <text x="760" y="150" font-size="12" fill="#333" font-weight="bold">G</text>
+                        <text x="760" y="183" font-size="12" fill="#333" font-weight="bold">D</text>
+                        <text x="760" y="216" font-size="12" fill="#333" font-weight="bold">A</text>
+                        <text x="760" y="250" font-size="12" fill="#333" font-weight="bold">E</text>
+
+                        <!-- Box pattern notes (frets 5-8) -->
+                        <!-- String 6: A(5), B(7) -->
+                        <circle cx="640" cy="250" r="17" fill="#F59E0B" stroke="#D97706" stroke-width="3"/>
+                        <text x="640" y="250" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="white" font-weight="bold">A</text>
+                        <text x="625" y="290" text-anchor="middle" font-size="11" fill="#F59E0B" font-weight="bold">①</text>
+
+                        <circle cx="400" cy="250" r="13" fill="#FCD34D" stroke="#F59E0B" stroke-width="2"/>
+                        <text x="400" y="250" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#78350F" font-weight="bold">B</text>
+                        <text x="385" y="290" text-anchor="middle" font-size="11" fill="#F59E0B" font-weight="bold">③</text>
+
+                        <!-- String 5: D(5), E(7) -->
+                        <circle cx="640" cy="216" r="13" fill="#FCD34D" stroke="#F59E0B" stroke-width="2"/>
+                        <text x="640" y="216" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#78350F" font-weight="bold">D</text>
+                        <text x="625" y="300" text-anchor="middle" font-size="11" fill="#F59E0B" font-weight="bold">①</text>
+
+                        <circle cx="400" cy="216" r="13" fill="#FCD34D" stroke="#F59E0B" stroke-width="2"/>
+                        <text x="400" y="216" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#78350F" font-weight="bold">E</text>
+                        <text x="385" y="300" text-anchor="middle" font-size="11" fill="#F59E0B" font-weight="bold">③</text>
+
+                        <!-- String 4: F#(4 - outside), G#(6), A(7) -->
+                        <circle cx="520" cy="183" r="13" fill="#FCD34D" stroke="#F59E0B" stroke-width="2"/>
+                        <text x="520" y="183" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="#78350F" font-weight="bold">G#</text>
+                        <text x="505" y="300" text-anchor="middle" font-size="11" fill="#F59E0B" font-weight="bold">②</text>
+
+                        <circle cx="400" cy="183" r="17" fill="#F59E0B" stroke="#D97706" stroke-width="3"/>
+                        <text x="400" y="183" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="white" font-weight="bold">A</text>
+                        <text x="385" y="300" text-anchor="middle" font-size="11" fill="#F59E0B" font-weight="bold">③</text>
+
+                        <!-- String 3: B(4), C#(6), D(7) -->
+                        <circle cx="520" cy="150" r="13" fill="#FCD34D" stroke="#F59E0B" stroke-width="2"/>
+                        <text x="520" y="150" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="#78350F" font-weight="bold">C#</text>
+                        <text x="505" y="310" text-anchor="middle" font-size="11" fill="#F59E0B" font-weight="bold">①</text>
+
+                        <circle cx="400" cy="150" r="13" fill="#FCD34D" stroke="#F59E0B" stroke-width="2"/>
+                        <text x="400" y="150" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#78350F" font-weight="bold">D</text>
+                        <text x="385" y="310" text-anchor="middle" font-size="11" fill="#F59E0B" font-weight="bold">②</text>
+
+                        <!-- String 2: E(5), F#(7) -->
+                        <circle cx="640" cy="116" r="13" fill="#FCD34D" stroke="#F59E0B" stroke-width="2"/>
+                        <text x="640" y="116" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#78350F" font-weight="bold">E</text>
+                        <text x="625" y="320" text-anchor="middle" font-size="11" fill="#F59E0B" font-weight="bold">①</text>
+
+                        <circle cx="400" cy="116" r="13" fill="#FCD34D" stroke="#F59E0B" stroke-width="2"/>
+                        <text x="400" y="116" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="#78350F" font-weight="bold">F#</text>
+                        <text x="385" y="320" text-anchor="middle" font-size="11" fill="#F59E0B" font-weight="bold">③</text>
+
+                        <!-- String 1: G#(4), A(5), B(7) -->
+                        <circle cx="640" cy="83" r="17" fill="#F59E0B" stroke="#D97706" stroke-width="3"/>
+                        <text x="640" y="83" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="white" font-weight="bold">A</text>
+                        <text x="625" y="330" text-anchor="middle" font-size="11" fill="#F59E0B" font-weight="bold">①</text>
+
+                        <circle cx="400" cy="83" r="13" fill="#FCD34D" stroke="#F59E0B" stroke-width="2"/>
+                        <text x="400" y="83" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#78350F" font-weight="bold">B</text>
+                        <text x="385" y="330" text-anchor="middle" font-size="11" fill="#F59E0B" font-weight="bold">③</text>
+
+                        <!-- Position label -->
+                        <text x="400" y="30" text-anchor="middle" font-size="16" fill="#333" font-weight="bold">Position II (Frets 5-8)</text>
+
+                        <!-- Position marker -->
+                        <text x="50" y="150" text-anchor="middle" font-size="28" fill="#F59E0B" font-weight="bold">II</text>
+                    </svg>
+                </div>
+
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-dot" style="background: #F59E0B; border-color: #D97706;"></div>
+                        <span>Root (A)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot" style="background: #FCD34D; border-color: #F59E0B;"></div>
+                        <span>Scale Notes</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-line" style="background: #F59E0B;"></div>
+                        <span>Position Box (4 frets)</span>
+                    </div>
+                </div>
+
+                <div class="key-features">
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li>Confined to 4-fret span (one hand position)</li>
+                        <li>No position shifts required</li>
+                        <li>Perfect for beginners learning positions</li>
+                        <li>Each finger assigned to one fret</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Visualization 4: Diagonal Pattern -->
+            <div class="visualization-card">
+                <div class="card-header">
+                    <h2 class="card-title">4. Diagonal Flow Pattern</h2>
+                    <p class="card-description">
+                        One-octave scale moving diagonally across strings. Great for understanding melodic connections
+                        and creating fluid, singable lines across the fretboard.
+                    </p>
+                </div>
+
+                <div class="svg-container">
+                    <svg viewBox="0 0 800 350" id="viz4">
+                        <!-- Fretboard background -->
+                        <rect x="100" y="50" width="600" height="200" fill="#8B4513" stroke="#4A2511" stroke-width="2" rx="8"/>
+
+                        <!-- Frets (3-10) -->
+                        <line x1="700" y1="50" x2="700" y2="250" stroke="#666" stroke-width="2"/>
+                        <line x1="614" y1="50" x2="614" y2="250" stroke="#666" stroke-width="2"/>
+                        <line x1="528" y1="50" x2="528" y2="250" stroke="#666" stroke-width="2"/>
+                        <line x1="442" y1="50" x2="442" y2="250" stroke="#666" stroke-width="2"/>
+                        <line x1="356" y1="50" x2="356" y2="250" stroke="#666" stroke-width="2"/>
+                        <line x1="270" y1="50" x2="270" y2="250" stroke="#666" stroke-width="2"/>
+                        <line x1="184" y1="50" x2="184" y2="250" stroke="#666" stroke-width="2"/>
+                        <line x1="100" y1="50" x2="100" y2="250" stroke="#666" stroke-width="2"/>
+
+                        <!-- Strings -->
+                        <line x1="100" y1="83" x2="700" y2="83" stroke="#D3D3D3" stroke-width="1" opacity="0.8"/>
+                        <line x1="100" y1="116" x2="700" y2="116" stroke="#D3D3D3" stroke-width="1.5" opacity="0.8"/>
+                        <line x1="100" y1="150" x2="700" y2="150" stroke="#D3D3D3" stroke-width="2" opacity="0.8"/>
+                        <line x1="100" y1="183" x2="700" y2="183" stroke="#D3D3D3" stroke-width="2.5" opacity="0.8"/>
+                        <line x1="100" y1="216" x2="700" y2="216" stroke="#D3D3D3" stroke-width="3" opacity="0.8"/>
+                        <line x1="100" y1="250" x2="700" y2="250" stroke="#D3D3D3" stroke-width="3.5" opacity="0.8"/>
+
+                        <!-- Fret markers -->
+                        <circle cx="657" cy="150" r="6" fill="#CCC" opacity="0.4"/>
+                        <circle cx="485" cy="150" r="6" fill="#CCC" opacity="0.4"/>
+                        <circle cx="313" cy="150" r="6" fill="#CCC" opacity="0.4"/>
+
+                        <!-- Fret numbers -->
+                        <text x="705" y="275" font-size="14" fill="#666">3</text>
+                        <text x="619" y="275" font-size="14" fill="#666">4</text>
+                        <text x="533" y="275" font-size="14" fill="#666">5</text>
+                        <text x="447" y="275" font-size="14" fill="#666">6</text>
+                        <text x="361" y="275" font-size="14" fill="#666">7</text>
+                        <text x="275" y="275" font-size="14" fill="#666">8</text>
+                        <text x="189" y="275" font-size="14" fill="#666">9</text>
+                        <text x="105" y="275" font-size="14" fill="#666">10</text>
+
+                        <!-- String labels -->
+                        <text x="760" y="83" font-size="12" fill="#333" font-weight="bold">E</text>
+                        <text x="760" y="116" font-size="12" fill="#333" font-weight="bold">B</text>
+                        <text x="760" y="150" font-size="12" fill="#333" font-weight="bold">G</text>
+                        <text x="760" y="183" font-size="12" fill="#333" font-weight="bold">D</text>
+                        <text x="760" y="216" font-size="12" fill="#333" font-weight="bold">A</text>
+                        <text x="760" y="250" font-size="12" fill="#333" font-weight="bold">E</text>
+
+                        <!-- Diagonal scale pattern (one octave A to A) -->
+                        <!-- Start: String 5, Fret 7 (E) -->
+                        <circle cx="485" cy="216" r="14" fill="#8B5CF6" stroke="#6D28D9" stroke-width="2"/>
+                        <text x="485" y="216" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="white" font-weight="bold">E</text>
+                        <text x="485" y="295" text-anchor="middle" font-size="9" fill="#8B5CF6" font-weight="bold">5</text>
+
+                        <!-- String 5, Fret 9 (F#) -->
+                        <circle cx="227" cy="216" r="14" fill="#8B5CF6" stroke="#6D28D9" stroke-width="2"/>
+                        <text x="227" y="216" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="white" font-weight="bold">F#</text>
+                        <text x="227" y="295" text-anchor="middle" font-size="9" fill="#8B5CF6" font-weight="bold">6</text>
+
+                        <!-- String 4, Fret 6 (G#) -->
+                        <circle cx="571" cy="183" r="14" fill="#8B5CF6" stroke="#6D28D9" stroke-width="2"/>
+                        <text x="571" y="183" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="white" font-weight="bold">G#</text>
+                        <text x="571" y="305" text-anchor="middle" font-size="9" fill="#8B5CF6" font-weight="bold">7</text>
+
+                        <!-- String 4, Fret 7 (A) - ROOT -->
+                        <circle cx="485" cy="183" r="18" fill="#A78BFA" stroke="#7C3AED" stroke-width="3"/>
+                        <text x="485" y="183" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="white" font-weight="bold">A</text>
+                        <text x="485" y="305" text-anchor="middle" font-size="9" fill="#8B5CF6" font-weight="bold">1</text>
+
+                        <!-- String 4, Fret 9 (B) -->
+                        <circle cx="227" cy="183" r="14" fill="#8B5CF6" stroke="#6D28D9" stroke-width="2"/>
+                        <text x="227" y="183" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="white" font-weight="bold">B</text>
+                        <text x="227" y="305" text-anchor="middle" font-size="9" fill="#8B5CF6" font-weight="bold">2</text>
+
+                        <!-- String 3, Fret 6 (C#) -->
+                        <circle cx="571" cy="150" r="14" fill="#8B5CF6" stroke="#6D28D9" stroke-width="2"/>
+                        <text x="571" y="150" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="white" font-weight="bold">C#</text>
+                        <text x="571" y="315" text-anchor="middle" font-size="9" fill="#8B5CF6" font-weight="bold">3</text>
+
+                        <!-- String 3, Fret 7 (D) -->
+                        <circle cx="485" cy="150" r="14" fill="#8B5CF6" stroke="#6D28D9" stroke-width="2"/>
+                        <text x="485" y="150" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="white" font-weight="bold">D</text>
+                        <text x="485" y="315" text-anchor="middle" font-size="9" fill="#8B5CF6" font-weight="bold">4</text>
+
+                        <!-- String 3, Fret 9 (E) -->
+                        <circle cx="227" cy="150" r="14" fill="#8B5CF6" stroke="#6D28D9" stroke-width="2"/>
+                        <text x="227" y="150" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="white" font-weight="bold">E</text>
+                        <text x="227" y="315" text-anchor="middle" font-size="9" fill="#8B5CF6" font-weight="bold">5</text>
+
+                        <!-- String 2, Fret 7 (F#) -->
+                        <circle cx="485" cy="116" r="14" fill="#8B5CF6" stroke="#6D28D9" stroke-width="2"/>
+                        <text x="485" y="116" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="white" font-weight="bold">F#</text>
+                        <text x="485" y="325" text-anchor="middle" font-size="9" fill="#8B5CF6" font-weight="bold">6</text>
+
+                        <!-- String 2, Fret 9 (G#) -->
+                        <circle cx="227" cy="116" r="14" fill="#8B5CF6" stroke="#6D28D9" stroke-width="2"/>
+                        <text x="227" y="116" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="white" font-weight="bold">G#</text>
+                        <text x="227" y="325" text-anchor="middle" font-size="9" fill="#8B5CF6" font-weight="bold">7</text>
+
+                        <!-- String 1, Fret 5 (A) - END ROOT -->
+                        <circle cx="657" cy="83" r="18" fill="#A78BFA" stroke="#7C3AED" stroke-width="3"/>
+                        <text x="657" y="83" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="white" font-weight="bold">A</text>
+                        <text x="657" y="335" text-anchor="middle" font-size="9" fill="#8B5CF6" font-weight="bold">1</text>
+
+                        <!-- Flow arrows -->
+                        <defs>
+                            <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                <polygon points="0 0, 10 3, 0 6" fill="#C4B5FD" />
+                            </marker>
+                        </defs>
+
+                        <!-- Curved connecting lines -->
+                        <path d="M 485 228 Q 356 222 227 228" stroke="#C4B5FD" stroke-width="3" fill="none" opacity="0.5" marker-end="url(#arrowhead)"/>
+                        <path d="M 571 195 Q 485 189 227 195" stroke="#C4B5FD" stroke-width="3" fill="none" opacity="0.5" marker-end="url(#arrowhead)"/>
+                        <path d="M 571 162 Q 400 156 227 162" stroke="#C4B5FD" stroke-width="3" fill="none" opacity="0.5" marker-end="url(#arrowhead)"/>
+                        <path d="M 485 128 Q 356 122 227 128" stroke="#C4B5FD" stroke-width="3" fill="none" opacity="0.5" marker-end="url(#arrowhead)"/>
+
+                        <!-- Position label -->
+                        <text x="400" y="30" text-anchor="middle" font-size="16" fill="#333" font-weight="bold">One-Octave Diagonal Flow</text>
+                    </svg>
+                </div>
+
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-dot" style="background: #A78BFA; border-color: #7C3AED;"></div>
+                        <span>Root (A)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot" style="background: #8B5CF6; border-color: #6D28D9;"></div>
+                        <span>Scale Notes</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-line" style="background: #C4B5FD;"></div>
+                        <span>Melodic Flow</span>
+                    </div>
+                </div>
+
+                <div class="key-features">
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li>One complete octave from A to A</li>
+                        <li>Natural melodic flow across strings</li>
+                        <li>Great for lead playing and solos</li>
+                        <li>Shows scale degree progression (1-7)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Visualization 5: Harmonic Zones -->
+            <div class="visualization-card">
+                <div class="card-header">
+                    <h2 class="card-title">5. Harmonic Zones View</h2>
+                    <p class="card-description">
+                        Organized by intervals and harmonic function. Shows how scale degrees stack vertically
+                        across the fretboard, revealing harmonic relationships.
+                    </p>
+                </div>
+
+                <div class="svg-container">
+                    <svg viewBox="0 0 900 400" id="viz5">
+                        <!-- Zone backgrounds -->
+                        <rect x="90" y="40" width="140" height="240" fill="#FEE2E2" opacity="0.3" rx="8"/>
+                        <rect x="240" y="40" width="140" height="240" fill="#DBEAFE" opacity="0.3" rx="8"/>
+                        <rect x="390" y="40" width="140" height="240" fill="#FEF3C7" opacity="0.3" rx="8"/>
+                        <rect x="540" y="40" width="140" height="240" fill="#D1FAE5" opacity="0.3" rx="8"/>
+                        <rect x="690" y="40" width="140" height="240" fill="#E0E7FF" opacity="0.3" rx="8"/>
+
+                        <!-- Zone labels -->
+                        <text x="160" y="25" text-anchor="middle" font-size="13" fill="#DC2626" font-weight="bold">Root (1)</text>
+                        <text x="310" y="25" text-anchor="middle" font-size="13" fill="#2563EB" font-weight="bold">2nd (2)</text>
+                        <text x="460" y="25" text-anchor="middle" font-size="13" fill="#F59E0B" font-weight="bold">3rd (3)</text>
+                        <text x="610" y="25" text-anchor="middle" font-size="13" fill="#10B981" font-weight="bold">5th (5)</text>
+                        <text x="760" y="25" text-anchor="middle" font-size="13" fill="#6366F1" font-weight="bold">6th/7th</text>
+
+                        <!-- Fretboard background -->
+                        <rect x="100" y="50" width="730" height="200" fill="#8B4513" stroke="#4A2511" stroke-width="2" rx="8"/>
+
+                        <!-- Vertical zone dividers -->
+                        <line x1="230" y1="50" x2="230" y2="250" stroke="#999" stroke-width="2" stroke-dasharray="4,2" opacity="0.4"/>
+                        <line x1="380" y1="50" x2="380" y2="250" stroke="#999" stroke-width="2" stroke-dasharray="4,2" opacity="0.4"/>
+                        <line x1="530" y1="50" x2="530" y2="250" stroke="#999" stroke-width="2" stroke-dasharray="4,2" opacity="0.4"/>
+                        <line x1="680" y1="50" x2="680" y2="250" stroke="#999" stroke-width="2" stroke-dasharray="4,2" opacity="0.4"/>
+
+                        <!-- Strings -->
+                        <line x1="100" y1="83" x2="830" y2="83" stroke="#D3D3D3" stroke-width="1" opacity="0.8"/>
+                        <line x1="100" y1="116" x2="830" y2="116" stroke="#D3D3D3" stroke-width="1.5" opacity="0.8"/>
+                        <line x1="100" y1="150" x2="830" y2="150" stroke="#D3D3D3" stroke-width="2" opacity="0.8"/>
+                        <line x1="100" y1="183" x2="830" y2="183" stroke="#D3D3D3" stroke-width="2.5" opacity="0.8"/>
+                        <line x1="100" y1="216" x2="830" y2="216" stroke="#D3D3D3" stroke-width="3" opacity="0.8"/>
+                        <line x1="100" y1="250" x2="830" y2="250" stroke="#D3D3D3" stroke-width="3.5" opacity="0.8"/>
+
+                        <!-- String labels -->
+                        <text x="860" y="83" font-size="12" fill="#333" font-weight="bold">E</text>
+                        <text x="860" y="116" font-size="12" fill="#333" font-weight="bold">B</text>
+                        <text x="860" y="150" font-size="12" fill="#333" font-weight="bold">G</text>
+                        <text x="860" y="183" font-size="12" fill="#333" font-weight="bold">D</text>
+                        <text x="860" y="216" font-size="12" fill="#333" font-weight="bold">A</text>
+                        <text x="860" y="250" font-size="12" fill="#333" font-weight="bold">E</text>
+
+                        <!-- ROOT ZONE (A notes) -->
+                        <circle cx="160" cy="83" r="15" fill="#DC2626" stroke="#991B1B" stroke-width="2"/>
+                        <text x="160" y="83" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="white" font-weight="bold">A</text>
+
+                        <circle cx="160" cy="150" r="15" fill="#DC2626" stroke="#991B1B" stroke-width="2"/>
+                        <text x="160" y="150" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="white" font-weight="bold">A</text>
+
+                        <circle cx="160" cy="183" r="15" fill="#DC2626" stroke="#991B1B" stroke-width="2"/>
+                        <text x="160" y="183" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="white" font-weight="bold">A</text>
+
+                        <circle cx="160" cy="216" r="15" fill="#DC2626" stroke="#991B1B" stroke-width="2"/>
+                        <text x="160" y="216" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="white" font-weight="bold">A</text>
+
+                        <!-- 2nd ZONE (B notes) -->
+                        <circle cx="310" cy="83" r="13" fill="#3B82F6" stroke="#1E40AF" stroke-width="2"/>
+                        <text x="310" y="83" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="white" font-weight="bold">B</text>
+
+                        <circle cx="310" cy="116" r="13" fill="#3B82F6" stroke="#1E40AF" stroke-width="2"/>
+                        <text x="310" y="116" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="white" font-weight="bold">B</text>
+
+                        <circle cx="310" cy="150" r="13" fill="#3B82F6" stroke="#1E40AF" stroke-width="2"/>
+                        <text x="310" y="150" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="white" font-weight="bold">B</text>
+
+                        <circle cx="310" cy="183" r="13" fill="#3B82F6" stroke="#1E40AF" stroke-width="2"/>
+                        <text x="310" y="183" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="white" font-weight="bold">B</text>
+
+                        <circle cx="310" cy="216" r="13" fill="#3B82F6" stroke="#1E40AF" stroke-width="2"/>
+                        <text x="310" y="216" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="white" font-weight="bold">B</text>
+
+                        <circle cx="310" cy="250" r="13" fill="#3B82F6" stroke="#1E40AF" stroke-width="2"/>
+                        <text x="310" y="250" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="white" font-weight="bold">B</text>
+
+                        <!-- 3rd ZONE (C# notes) -->
+                        <circle cx="460" cy="116" r="13" fill="#F59E0B" stroke="#D97706" stroke-width="2"/>
+                        <text x="460" y="116" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="white" font-weight="bold">C#</text>
+
+                        <circle cx="460" cy="150" r="13" fill="#F59E0B" stroke="#D97706" stroke-width="2"/>
+                        <text x="460" y="150" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="white" font-weight="bold">C#</text>
+
+                        <circle cx="460" cy="183" r="13" fill="#F59E0B" stroke="#D97706" stroke-width="2"/>
+                        <text x="460" y="183" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="white" font-weight="bold">C#</text>
+
+                        <circle cx="460" cy="216" r="13" fill="#F59E0B" stroke="#D97706" stroke-width="2"/>
+                        <text x="460" y="216" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="white" font-weight="bold">C#</text>
+
+                        <circle cx="460" cy="250" r="13" fill="#F59E0B" stroke="#D97706" stroke-width="2"/>
+                        <text x="460" y="250" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="white" font-weight="bold">C#</text>
+
+                        <!-- 5th ZONE (E notes) -->
+                        <circle cx="610" cy="83" r="13" fill="#10B981" stroke="#065F46" stroke-width="2"/>
+                        <text x="610" y="83" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="white" font-weight="bold">E</text>
+
+                        <circle cx="610" cy="116" r="13" fill="#10B981" stroke="#065F46" stroke-width="2"/>
+                        <text x="610" y="116" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="white" font-weight="bold">E</text>
+
+                        <circle cx="610" cy="150" r="13" fill="#10B981" stroke="#065F46" stroke-width="2"/>
+                        <text x="610" y="150" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="white" font-weight="bold">E</text>
+
+                        <circle cx="610" cy="183" r="13" fill="#10B981" stroke="#065F46" stroke-width="2"/>
+                        <text x="610" y="183" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="white" font-weight="bold">E</text>
+
+                        <circle cx="610" cy="216" r="13" fill="#10B981" stroke="#065F46" stroke-width="2"/>
+                        <text x="610" y="216" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="white" font-weight="bold">E</text>
+
+                        <circle cx="610" cy="250" r="13" fill="#10B981" stroke="#065F46" stroke-width="2"/>
+                        <text x="610" y="250" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="white" font-weight="bold">E</text>
+
+                        <!-- 6th/7th ZONE (F# and G# notes) -->
+                        <circle cx="730" cy="83" r="12" fill="#6366F1" stroke="#4338CA" stroke-width="2"/>
+                        <text x="730" y="83" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="white" font-weight="bold">F#</text>
+
+                        <circle cx="790" cy="83" r="12" fill="#6366F1" stroke="#4338CA" stroke-width="2"/>
+                        <text x="790" y="83" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="white" font-weight="bold">G#</text>
+
+                        <circle cx="730" cy="116" r="12" fill="#6366F1" stroke="#4338CA" stroke-width="2"/>
+                        <text x="730" y="116" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="white" font-weight="bold">F#</text>
+
+                        <circle cx="790" cy="116" r="12" fill="#6366F1" stroke="#4338CA" stroke-width="2"/>
+                        <text x="790" y="116" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="white" font-weight="bold">G#</text>
+
+                        <circle cx="730" cy="150" r="12" fill="#6366F1" stroke="#4338CA" stroke-width="2"/>
+                        <text x="730" y="150" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="white" font-weight="bold">G#</text>
+
+                        <circle cx="730" cy="183" r="12" fill="#6366F1" stroke="#4338CA" stroke-width="2"/>
+                        <text x="730" y="183" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="white" font-weight="bold">F#</text>
+
+                        <circle cx="790" cy="183" r="12" fill="#6366F1" stroke="#4338CA" stroke-width="2"/>
+                        <text x="790" y="183" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="white" font-weight="bold">G#</text>
+
+                        <circle cx="730" cy="216" r="12" fill="#6366F1" stroke="#4338CA" stroke-width="2"/>
+                        <text x="730" y="216" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="white" font-weight="bold">F#</text>
+
+                        <circle cx="790" cy="216" r="12" fill="#6366F1" stroke="#4338CA" stroke-width="2"/>
+                        <text x="790" y="216" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="white" font-weight="bold">G#</text>
+
+                        <circle cx="790" cy="250" r="12" fill="#6366F1" stroke="#4338CA" stroke-width="2"/>
+                        <text x="790" y="250" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="white" font-weight="bold">G#</text>
+
+                        <!-- Position label -->
+                        <text x="465" y="285" text-anchor="middle" font-size="16" fill="#333" font-weight="bold">Harmonic Zones (By Scale Degree)</text>
+
+                        <!-- Note labels for 4th degree (D) -->
+                        <text x="60" y="150" text-anchor="middle" font-size="11" fill="#666" font-weight="bold">4th</text>
+                        <circle cx="120" cy="150" r="11" fill="#0EA5E9" stroke="#0369A1" stroke-width="2"/>
+                        <text x="120" y="150" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="white" font-weight="bold">D</text>
+
+                        <circle cx="120" cy="183" r="11" fill="#0EA5E9" stroke="#0369A1" stroke-width="2"/>
+                        <text x="120" y="183" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="white" font-weight="bold">D</text>
+
+                        <circle cx="120" cy="216" r="11" fill="#0EA5E9" stroke="#0369A1" stroke-width="2"/>
+                        <text x="120" y="216" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="white" font-weight="bold">D</text>
+
+                        <circle cx="120" cy="250" r="11" fill="#0EA5E9" stroke="#0369A1" stroke-width="2"/>
+                        <text x="120" y="250" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="white" font-weight="bold">D</text>
+
+                        <!-- Interval indicators -->
+                        <text x="160" y="310" text-anchor="middle" font-size="11" fill="#DC2626" font-weight="bold">P1</text>
+                        <text x="310" y="310" text-anchor="middle" font-size="11" fill="#2563EB" font-weight="bold">M2</text>
+                        <text x="460" y="310" text-anchor="middle" font-size="11" fill="#F59E0B" font-weight="bold">M3</text>
+                        <text x="120" y="310" text-anchor="middle" font-size="11" fill="#0EA5E9" font-weight="bold">P4</text>
+                        <text x="610" y="310" text-anchor="middle" font-size="11" fill="#10B981" font-weight="bold">P5</text>
+                        <text x="760" y="310" text-anchor="middle" font-size="11" fill="#6366F1" font-weight="bold">M6/M7</text>
+
+                        <!-- Chord tone indicators -->
+                        <text x="160" y="335" text-anchor="middle" font-size="10" fill="#DC2626" font-style="italic">Tonic</text>
+                        <text x="460" y="335" text-anchor="middle" font-size="10" fill="#F59E0B" font-style="italic">Chord</text>
+                        <text x="610" y="335" text-anchor="middle" font-size="10" fill="#10B981" font-style="italic">Chord</text>
+
+                        <!-- Degree labels -->
+                        <text x="120" y="335" text-anchor="middle" font-size="10" fill="#0EA5E9" font-style="italic">Passing</text>
+                        <text x="310" y="335" text-anchor="middle" font-size="10" fill="#2563EB" font-style="italic">Passing</text>
+                        <text x="760" y="335" text-anchor="middle" font-size="10" fill="#6366F1" font-style="italic">Color</text>
+                    </svg>
+                </div>
+
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-dot" style="background: #DC2626; border-color: #991B1B;"></div>
+                        <span>Root (1) - Tonic</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot" style="background: #F59E0B; border-color: #D97706;"></div>
+                        <span>3rd - Chord Tone</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot" style="background: #10B981; border-color: #065F46;"></div>
+                        <span>5th - Chord Tone</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot" style="background: #3B82F6; border-color: #1E40AF;"></div>
+                        <span>2nd - Passing Tone</span>
+                    </div>
+                </div>
+
+                <div class="key-features">
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li>Organized by harmonic function (interval zones)</li>
+                        <li>Shows chord tones vs. passing tones</li>
+                        <li>Reveals vertical note relationships</li>
+                        <li>Great for understanding harmony</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; color: white; margin-top: 60px; padding: 30px; background: rgba(255,255,255,0.1); border-radius: 15px;">
+            <h3 style="margin-bottom: 15px;">Understanding Scale Positions</h3>
+            <p style="max-width: 800px; margin: 0 auto; line-height: 1.8; opacity: 0.95;">
+                Each visualization represents a different approach to learning the A Major scale on guitar.
+                Traditional methods use "box patterns" confined to 4-5 frets, while modern approaches like
+                3-notes-per-string prioritize speed and consistency. The CAGED system uses familiar chord shapes,
+                diagonal patterns emphasize melodic flow, and harmonic zones reveal the theoretical relationships
+                between notes. Try combining these approaches to master the entire fretboard!
+            </p>
+            <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.8;">
+                Created for leftTar - Left-handed guitar visualization tool
+            </p>
+        </div>
+    </div>
+</body>
+</html>
